@@ -1,3 +1,3 @@
-REST Api in progress for Understanding Networks
+REST Api in progress that uses dweet.io
 
-Made with help from https://github.com/buglabs/node-dweetio
+You’ll need to install the dweet node module from https://github.com/buglabs/node-dweetio
