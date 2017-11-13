@@ -1,0 +1,29 @@
+#headTitle{
+	color: blue;
+	text-align: center;
+	font-family: "Arial Black", Arial, sans-serif; 
+	font-size: 100px; 
+
+}
+
+.writing{
+	color: red;
+
+}
+
+.material-icons{
+	font-size: 1px;
+	color: green;
+	align-content: center;
+	
+}
+
+.button{
+	color: lightblue;
+	align-content: center;
+}
+
+.body{
+	background-image: lightblue; 
+
+}

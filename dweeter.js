@@ -13,11 +13,9 @@ var dweetio = new dweetClient();
 var currentTotal = 3;
 var newHits = 1;
 
-
-
 //GET current total spent
 dweetio.get_latest_dweet_for("money-tracker", function(err, dweet){
-	var dweet = dweet[0];
+	var dweet = dweet[0]; // Dweet is always an array of 1
 	currentTotal = dweet.content.total;
 	console.log("current total spent = $" + currentTotal);
 })
@@ -44,4 +42,6 @@ function moneySpent(){
 	})
 
 }
+
+moneySpent();
 
