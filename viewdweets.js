@@ -54,14 +54,14 @@ function draw(){
 //ideally this happens via the device every 24 hours (cron job?)
 function resetTotal(){
 	
-	currentTotal = 0;
-
 	var xhr = new XMLHttpRequest();
 	xhr.open("POST", 'https://dweet.io/dweet/for/money-tracker', true);
 	xhr.setRequestHeader('Content-Type', 'application/json');
 	xhr.send(JSON.stringify(
 				{ "total": 0}
 			))
+
+	requestData();
 }
 
 
