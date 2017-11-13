@@ -5,7 +5,7 @@ var dailyLimit = 25;
 
 //set up our beautiful website
 function setup(){
-	createCanvas(500,500);
+	createCanvas(700,200);
 	resetButton = createButton("RESET"); //ability to reset to new day is currently on website; ideally would run every 24h from IoT device via cron job
 	resetButton.mousePressed(resetTotal); 
 	requestData();
@@ -25,7 +25,7 @@ function gotData(data){
 	console.log(newTotal);
 }
 
-//display the current total
+//display the current totalal
 function draw(){
 	background(255,255,255);
 
@@ -40,6 +40,7 @@ function draw(){
 	fill(0,0,0);
 	textSize(50);
 	text("Total spent today: $", 50,100);
+
 }
 
 
