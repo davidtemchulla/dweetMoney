@@ -3,11 +3,12 @@ var data;
 var newTotal = 0;  //starting daily total = 0;
 var dailyLimit = 25;
 
+
 //set up our beautiful website
 function setup(){
 	createCanvas(700,200);
-	resetButton = createButton("RESET"); //ability to reset to new day is currently on website; ideally would run every 24h from IoT device via cron job
-	resetButton.mousePressed(resetTotal); 
+	// resetButton = createButton("RESET"); //ability to reset to new day is currently on website; ideally would run every 24h from IoT device via cron job
+	// resetButton.mousePressed(resetTotal); 
 	requestData();
 }
 
@@ -49,19 +50,18 @@ function draw(){
 
 
 
-//POST new total spent 
+//POST reset total to 0
+//ideally this happens via the device every 24 hours (cron job?)
 function resetTotal(){
 	
-	//update current total by adding new hits
 	currentTotal = 0;
 
-	//POST new total 
-	dweetio.dweet_for("money-tracker", {total: currentTotal}, function(err, dweet){
-
-		console.log(dweet.thing); // "money-tracker"
-		console.log(dweet.content); //total
-		console.log(dweet.created); //when dweet created
-
-	})
-
+	var xhr = new XMLHttpRequest();
+	xhr.open("POST", 'https://dweet.io/dweet/for/money-tracker', true);
+	xhr.setRequestHeader('Content-Type', 'application/json');
+	xhr.send(JSON.stringify(
+				{ "total": 0}
+			))
 }
+
+
