@@ -48,8 +48,6 @@ function draw(){
 
 
 
-
-
 //POST reset total to 0
 //ideally this happens via the device every 24 hours (cron job?)
 function resetTotal(){

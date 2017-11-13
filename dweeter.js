@@ -10,10 +10,25 @@ var dweetClient = require("node-dweetio");
 var dweetio = new dweetClient();
 
 //our variables, yay
-var currentTotal = 3;
-var newHits = 1;
+var currentTotal;
+var newHits = 3;
+
+// 
 
 //GET current total spent
+
+// function getTotal(){
+// 	dweetio.get_latest_dweet_for("money-tracker", function(err, dweet){
+// 		var dweet = dweet[0]; // Dweet is always an array of 1
+// 		currentTotal = dweet.content.total;
+// 		console.log(dweet);
+// 		console.log("current total spent = $" + currentTotal);
+// 	})
+// }
+moneySpent();
+console.log("total after money spent: ", currentTotal);
+
+
 dweetio.get_latest_dweet_for("money-tracker", function(err, dweet){
 	var dweet = dweet[0]; // Dweet is always an array of 1
 	currentTotal = dweet.content.total;
@@ -28,9 +43,11 @@ dweetio.get_latest_dweet_for("money-tracker", function(err, dweet){
 
 //POST new total spent 
 function moneySpent(){
+
+	if (currentTotal==null){currentTotal=0};
 	
 	//update current total by adding new hits
-	currentTotal += newHits;
+	currentTotal = currentTotal + newHits;
 
 	//POST new total 
 	dweetio.dweet_for("money-tracker", {total: currentTotal}, function(err, dweet){
@@ -43,5 +60,8 @@ function moneySpent(){
 
 }
 
-moneySpent();
+// getTotal(); 
+// console.log("total before money spent: ", currentTotal);
+
+
 
