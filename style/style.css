@@ -1,29 +1,35 @@
 #headTitle{
-	color: blue;
+	color: green;
 	text-align: center;
 	font-family: "Arial Black", Arial, sans-serif; 
-	font-size: 100px; 
+	font-size: 80px; 
 
 }
 
-.writing{
-	color: red;
 
+.material-icons {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    padding-left: 35%;
+    font-size: 300px !important;
+    display: block;
+    margin: 10 auto;
+    color: grey;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    /* display: inline-block; */
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    -webkit-font-feature-settings: 'liga';
+    -webkit-font-smoothing: antialiased;
 }
 
-.material-icons{
-	font-size: 1px;
-	color: green;
-	align-content: center;
+
+.wall{
+	background-color: aliceblue;
 	
-}
-
-.button{
-	color: lightblue;
-	align-content: center;
-}
-
-.body{
-	background-image: lightblue; 
 
 }
