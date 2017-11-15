@@ -6,12 +6,14 @@ var currentLimit = 25; //change this var to set new limit
 
 //set up our beautiful website
 function setup(){
-	createCanvas(700,200);
-	// resetButton = createButton("RESET"); //ability to reset to new day is currently on website; ideally would run every 24h from IoT device via cron job
-	// resetButton.mousePressed(resetTotal); 
-	requestData();
+	createCanvas(700,700);
+	resetButton = createButton("RESET"); //ability to reset to new day is currently on website?
+	resetButton.position(490);
+	resetButton.mousePressed(()=>{newTotal = 0}); //right now this resets total, but ONLY IN THE WEBPAGE not on dweet. should we be able to reset via webpage, or should we control it all via IoT device?
+    requestData();
+  
+  
 }
-
 //get current total from dweet
 function requestData(){
 	loadJSON("https://dweet.io/get/dweets/for/money-tracker", gotData);
@@ -28,22 +30,23 @@ function gotData(data){
 
 //display the current totalal
 function draw(){
-	background(255,255,255);
+	background(240,248,255);
+
+	
+
 
 	//add some angry red words if you've overspent
-	if (newTotal>currentLimit){
+	if (newTotal>dailyLimit){
 		fill(255,0,0);
 		textSize(100);
 		text("YOU FAILED", 50, 400);
 	}
 
-	text(newTotal, 500, 100);
-	fill(0,0,0);
-	textSize(50);
-	text("Total spent today: $", 50,100);
-
+	text(newTotal, 620, 50);
+	fill(128,128,128);
+	textSize(30);
+	text("Total spent today: $",360,50);
 }
-
 
 
 
