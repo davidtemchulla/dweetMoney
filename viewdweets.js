@@ -1,7 +1,7 @@
 //our variables
 var data;
 var newTotal = 0;  //starting daily total = 0;
-var dailyLimit = 25;
+var currentLimit = 25; //change this var to set new limit
 
 
 //set up our beautiful website
@@ -31,7 +31,7 @@ function draw(){
 	background(255,255,255);
 
 	//add some angry red words if you've overspent
-	if (newTotal>dailyLimit){
+	if (newTotal>currentLimit){
 		fill(255,0,0);
 		textSize(100);
 		text("YOU FAILED", 50, 400);
@@ -51,15 +51,32 @@ function draw(){
 //POST reset total to 0
 //ideally this happens via the device every 24 hours (cron job?)
 function resetTotal(){
-	
+
 	var xhr = new XMLHttpRequest();
 	xhr.open("POST", 'https://dweet.io/dweet/for/money-tracker', true);
 	xhr.setRequestHeader('Content-Type', 'application/json');
 	xhr.send(JSON.stringify(
-				{ "total": 0}
+				{ "total": 0, "limit": currentLimit}
 			))
 
 	requestData();
 }
+
+
+
+function newLimit(){
+
+	var xhr = new XMLHttpRequest();
+	xhr.open("POST", 'https://dweet.io/dweet/for/money-tracker', true);
+	xhr.setRequestHeader('Content-Type', 'application/json');
+	xhr.send(JSON.stringify(
+				{ "total": newTotal, "limit": currentLimit}
+			))
+
+	requestData();
+}
+
+
+newLimit();
 
 

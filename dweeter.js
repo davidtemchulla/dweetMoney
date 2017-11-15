@@ -11,6 +11,7 @@ var dweetio = new dweetClient();
 
 //our variables, yay
 var currentTotal;
+var currentLimit = 20;
 var newHits = 3;
 
 // 
@@ -50,7 +51,7 @@ function moneySpent(){
 	currentTotal = currentTotal + newHits;
 
 	//POST new total 
-	dweetio.dweet_for("money-tracker", {total: currentTotal}, function(err, dweet){
+	dweetio.dweet_for("money-tracker", {total: currentTotal, limit: currentLimit}, function(err, dweet){
 
 		console.log(dweet.thing); // "money-tracker"
 		console.log(dweet.content); //total
